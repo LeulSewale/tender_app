@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tender_app/core/constatnts/constants.dart/colors.dart';
-import 'package:tender_app/features/tender/presentation/screens/menu_screen.dart';
+import 'package:tender_app/features/tender/presentation/widgets/menu_screen.dart';
 import 'package:tender_app/features/tender/presentation/widgets/tender_card.dart';
 
 class HomePage extends StatefulWidget {

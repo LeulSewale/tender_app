@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tender_app/core/constatnts/constants.dart/colors.dart';
 import 'package:tender_app/features/tender/presentation/widgets/tender_info_row.dart';
-import 'package:tender_app/features/tender/presentation/screens/tender_information_page.dart';
+import 'package:tender_app/features/tender/presentation/screens/tenderInformation/tender_information_page.dart';
 
 class TenderCard extends StatefulWidget {
   const TenderCard({super.key});

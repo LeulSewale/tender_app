@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:tender_app/app_route.dart';
 import 'package:tender_app/features/auth/presentation/pages/registration_page.dart';
-import 'package:tender_app/features/tender/presentation/screens/select_packege.dart';
-import 'package:tender_app/features/tender/presentation/screens/companies_pages.dart';
-import 'package:tender_app/features/tender/presentation/screens/my_profile_page.dart';
-import 'package:tender_app/features/tender/presentation/screens/notification_page.dart';
-import 'package:tender_app/features/tender/presentation/screens/otp_verfication_page.dart';
-import 'package:tender_app/features/tender/presentation/screens/payment_history.dart';
-import 'package:tender_app/features/tender/presentation/screens/home_page.dart';
+import 'package:tender_app/features/tender/presentation/screens/companies/companies_pages.dart';
+import 'package:tender_app/features/tender/presentation/screens/selectPackage/select_packege.dart';
+import 'package:tender_app/features/tender/presentation/screens/profile/my_profile_page.dart';
+import 'package:tender_app/features/tender/presentation/screens/notification/notification_page.dart';
+import 'package:tender_app/features/tender/presentation/screens/auth/otp_verfication_page.dart';
+import 'package:tender_app/features/tender/presentation/screens/paymentHistory/payment_history.dart';
+import 'package:tender_app/features/tender/presentation/screens/home/home_page.dart';
 import 'package:tender_app/features/auth/presentation/pages/login_page.dart';
-import 'package:tender_app/features/tender/presentation/screens/save_bides_page.dart';
-import 'package:tender_app/features/tender/presentation/screens/submitted_bids_page.dart';
-import 'package:tender_app/features/tender/presentation/screens/tender_information_page.dart';
-import 'package:tender_app/features/tender/presentation/screens/top_tendes_page.dart';
+import 'package:tender_app/features/tender/presentation/screens/saveBide/save_bides_page.dart';
+import 'package:tender_app/features/tender/presentation/screens/summittedBids/submitted_bids_page.dart';
+import 'package:tender_app/features/tender/presentation/screens/tenderInformation/tender_information_page.dart';
+import 'package:tender_app/features/tender/presentation/screens/topTenders/top_tendes_page.dart';
 // <-- Import AppRoutes
 
 void main() {
