@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tender_app/core/constatnts/constants.dart/colors.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -9,115 +10,138 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController emailCtrl = TextEditingController();
+  final TextEditingController phoneCtrl = TextEditingController();
   final TextEditingController passwordCtrl = TextEditingController();
-  bool rememberMe = false;
-  bool isPasswordVisible = false;
-
-  void _submit() {
-    if (_formKey.currentState!.validate()) {
-      final email = emailCtrl.text.trim();
-      final password = passwordCtrl.text;
-
-      // Simulate login action
-      print("Logging in with: $email / $password");
-      // Navigate or call API here
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
       body: Center(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
           child: Form(
             key: _formKey,
             child: Column(
-              mainAxisSize: MainAxisSize.min,
               children: [
-                const Icon(Icons.lock, size: 64, color: Colors.blue),
-                const SizedBox(height: 16),
-                const Text('Welcome Back', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-
-                const SizedBox(height: 32),
-
-                TextFormField(
-                  controller: emailCtrl,
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                    prefixIcon: Icon(Icons.email),
-                    border: OutlineInputBorder(),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 35,
+                    horizontal: 100,
                   ),
+                  margin: const EdgeInsets.only(bottom: 40),
+                  decoration: BoxDecoration(
+                    color: AppColors.secondaryColor,
+                    borderRadius: BorderRadius.circular(32),
+                  ),
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.picture_as_pdf,
+                        size: 64,
+                        color: AppColors.primaryColor,
+                      ),
+                      const SizedBox(height: 12),
+                      Text(
+                        'YENE TENDER',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'DMSans',
+                          color: AppColors.primaryColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 40),
+                TextFormField(
+                  controller: phoneCtrl,
+                  keyboardType: TextInputType.phone,
+                  decoration: const InputDecoration(
+                    labelText: 'Phone Number',
+                    hintText: 'Enter Phone number',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                  ),
+                  style: const TextStyle(fontFamily: 'DMSans'),
                   validator: (value) {
-                    if (value == null || value.isEmpty) return 'Email is required';
-                    if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) return 'Enter a valid email';
+                    if (value == null || value.isEmpty) {
+                      return 'Phone number is required';
+                    }
                     return null;
                   },
                 ),
-
-                const SizedBox(height: 16),
-
+                const SizedBox(height: 20),
                 TextFormField(
                   controller: passwordCtrl,
-                  obscureText: !isPasswordVisible,
-                  decoration: InputDecoration(
+                  obscureText: true,
+                  decoration: const InputDecoration(
                     labelText: 'Password',
-                    prefixIcon: const Icon(Icons.lock),
-                    border: const OutlineInputBorder(),
-                    suffixIcon: IconButton(
-                      icon: Icon(isPasswordVisible ? Icons.visibility : Icons.visibility_off),
-                      onPressed: () => setState(() => isPasswordVisible = !isPasswordVisible),
+                    hintText: 'Enter password',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
                   ),
+                  style: const TextStyle(fontFamily: 'DMSans'),
                   validator: (value) {
-                    if (value == null || value.isEmpty) return 'Password is required';
-                    if (value.length < 6) return 'Password must be at least 6 characters';
+                    if (value == null || value.isEmpty) {
+                      return 'Password is required';
+                    }
                     return null;
                   },
                 ),
-
-                const SizedBox(height: 16),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Checkbox(
-                          value: rememberMe,
-                          onChanged: (value) => setState(() => rememberMe = value!),
-                        ),
-                        const Text('Remember me'),
-                      ],
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        // Handle forgot password
-                      },
-                      child: const Text('Forgot password?'),
-                    ),
-                  ],
-                ),
-
                 const SizedBox(height: 24),
-
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: _submit,
-                    child: const Text('Login'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        Navigator.of(
+                          context,
+                        ).pushReplacementNamed('/selected_package');
+                      }
+                    },
+                    child: const Text(
+                      'Login',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontFamily: 'DMSans',
+                      ),
+                    ),
                   ),
                 ),
-
-                const SizedBox(height: 16),
-
-                TextButton(
-                  onPressed: () {
-                    // Navigate to register page
-                  },
-                  child: const Text("Don't have an account? Register"),
+                const SizedBox(height: 24),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Don't have an account? ",
+                      style: TextStyle(fontFamily: 'DMSans'),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/register');
+                      },
+                      child: Text(
+                        'Sign Up',
+                        style: TextStyle(
+                          color: AppColors.primaryColor,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'DMSans',
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

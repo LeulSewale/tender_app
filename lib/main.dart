@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tender_app/app_route.dart';
-import 'package:tender_app/features/auth/presentation/pages/registration_page.dart';
+import 'package:tender_app/features/tender/presentation/screens/auth/registration_page.dart';
 import 'package:tender_app/features/tender/presentation/screens/companies/companies_pages.dart';
 import 'package:tender_app/features/tender/presentation/screens/selectPackage/select_packege.dart';
 import 'package:tender_app/features/tender/presentation/screens/profile/my_profile_page.dart';
